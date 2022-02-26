@@ -1,5 +1,9 @@
 package com.timec.buzz.web.controller;
 
+import javax.servlet.http.HttpSession;
+
+import com.timec.buzz.web.config.auth.LoginUser;
+import com.timec.buzz.web.config.auth.dto.SessionUser;
 import com.timec.buzz.web.dto.PostsResponseDto;
 import com.timec.buzz.web.service.PostsService;
 import lombok.RequiredArgsConstructor;
@@ -13,10 +17,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class IndexController {
 	private final PostsService postsService;
+	private final HttpSession httpSession;
 
 	@GetMapping("/")
-	public String index(Model model) {
+	public String index(Model model, @LoginUser SessionUser sessionUser) {
 		model.addAttribute("posts", postsService.findAllDesc());
+
+		if(sessionUser != null) {
+			model.addAttribute("userName", sessionUser.getName());
+		}
 		return "index";
 	}
 

@@ -7,7 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(controllers = {PingPongController.class})
+//@WebMvcTest(controllers = {PingPongController.class})
 public class PingPongControllerTests {
 	@Autowired
 	private MockMvc mockMvc;

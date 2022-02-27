@@ -4,6 +4,8 @@ plugins {
 	id 'java'
 }
 
+
+
 group = 'com.timec'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -29,6 +31,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+jar {
+	manifest{
+		attributes(
+			'Main-Class' : 'com.timec.buzz.BuzzProjectApplication'
+		)
+	}
 }
 
 tasks.named('test') {

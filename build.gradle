@@ -2,13 +2,15 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'application'
 }
-
-
 
 group = 'com.timec'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+mainClassName='com.timec.buzz.BuzzProjectApplication'
 
 configurations {
 	compileOnly {
@@ -35,6 +37,8 @@ dependencies {
 
 jar {
 	enabled = false
+	archiveBaseName = 'buzz-project'
+	archiveVersion = '$version'
 }
 
 tasks.named('test') {
